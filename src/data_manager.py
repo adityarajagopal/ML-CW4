@@ -15,13 +15,34 @@ def split_data(TrainMat, Val, Class):
 	Train = np.zeros((1,TrainMat.shape[1]-1))
 	
 	for Row in TrainMat:
-		if Row[0] == Val: 
+		if Row[0] in Val: 
 			Train = np.append(Train, [Row[1:]], axis=0)
 	Train = np.delete(Train, (0), axis=0)
 	
 	Y = Class * np.ones((Train.shape[0], 1))
 	
 	return (Train, Y)
+
+def gen_matrices(Class1, Class2, TrainRaw, TestRaw, TrainFeat, TestFeat, Feat):
+	if (Feat):
+		TrainData = TrainFeat
+		TestData = TestFeat
+	else:
+		TrainData = TrainRaw
+		TestData = TestRaw
+
+	(Train2, Y_hat2) = split_data(TrainData, Class1, 1)
+	(Train8, Y_hat8) = split_data(TrainData, Class2, -1)
+	(Test2, Y2) = split_data(TestData, Class1, 1)
+	(Test8, Y8) = split_data(TestData, Class2, -1)
+
+	X = np.append(Train2, Train8, axis=0)
+	Y_hat = np.append(Y_hat2, Y_hat8, axis=0)
+	TestSet = np.append(Test2, Test8, axis=0)
+	Y = np.append(Y2, Y8, axis=0)
+
+	return (X, Y_hat, TestSet, Y)
+	
 
 def thread_cv(GammaList, CList, KList, TrainMat, Y_hat, PCA):
 	if (PCA):
@@ -32,7 +53,7 @@ def thread_cv(GammaList, CList, KList, TrainMat, Y_hat, PCA):
 	OpQ = Queue.Queue(QLength)
 	Threads = []
 	ThreadNum = 4
-	Fold = 10
+	Fold = 100
 	CVErrDict = {}
 
 	for ThreadID in xrange(1, ThreadNum+1):
@@ -72,7 +93,8 @@ def thread_cv(GammaList, CList, KList, TrainMat, Y_hat, PCA):
 		else:
 			(CVParam, CVErr) = OpQ.get(block=False)
 			CVErrDict.update({CVParam:CVErr})
-
+	
+	ExitFlag = 0
 	return CVErrDict
 
 

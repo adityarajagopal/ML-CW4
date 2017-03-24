@@ -87,6 +87,7 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			plt.xlabel("X1")
 			plt.ylabel("X2")
 			plt.contour(xx, yy, Z, levels=[0])
+			plt.scatter(Svm_fit.support_vectors_[:,0], Svm_fit.support_vectors_[:,1], facecolor='none', edgecolor='black', s=20)
 			plt.scatter(X[:,0], X[:,1], c=ColourTrain, s=1)
 			plt.savefig("4c_2_train.eps", format='eps', dpi=1000)
 			
@@ -162,7 +163,7 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			plt.xlabel("X1")
 			plt.ylabel("X2")
 			plt.contour(xx, yy, Z, levels=[0])
-			#plt.scatter(Svm_fit.support_vectors_[:,0], Svm_fit.support_vectors_[:,1], s=80, facecolors = 'none')
+			plt.scatter(Svm_fit.support_vectors_[:,0], Svm_fit.support_vectors_[:,1], facecolor='none', edgecolor='black', s=20)
 			plt.scatter(TrainMat[:,0], TrainMat[:,1], c=ColourTrain, s=1)
 			plt.savefig("4c_1_train.eps", format='eps', dpi=1000)
 		

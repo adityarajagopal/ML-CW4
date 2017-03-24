@@ -8,14 +8,14 @@ from sklearn import decomposition
 
 def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 	StartGamma = 0
-	EndGamma = 0.05
-	NumGamma = 2 
+	EndGamma = 0.02
+	NumGamma = 10 
 	GammaStep = (EndGamma - StartGamma) / float(NumGamma)
 	GammaList = np.arange(StartGamma+GammaStep, EndGamma+0.000001, GammaStep)
 	
-	StartC = 1.0
+	StartC = 0.0
 	EndC = 10.0
-	NumC = 2
+	NumC = 20
 	CStep = (EndC - StartC) / float(NumC)
 	CList = np.arange(StartC+CStep, EndC+0.000001, CStep)
 	
@@ -56,9 +56,6 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			
 			ColourTest = ['b' if i == 1 else 'r' for i in Y]
 			ColourTrain = ['b' if i == 1 else 'r' for i in Y_hat]
-			#SV_index = Svm_fit.support_; 
-			#for i in SV_index:
-			#	ColourTrain[i] = 'magenta'
 
 			X1 = TestSet[:,0]
 			X2 = TestSet[:,1]
@@ -132,9 +129,6 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			
 			ColourTest = ['b' if i == 1 else 'r' for i in Y]
 			ColourTrain = ['b' if i == 1 else 'r' for i in Y_hat]
-			#SV_index = Svm_fit.support_; 
-			#for i in SV_index:
-			#	ColourTrain[i] = 'magenta'
 			
 			X1 = TestMat[:,0]
 			X2 = TestMat[:,1]

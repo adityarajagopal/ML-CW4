@@ -11,15 +11,15 @@ def main():
 	
 	Xab, Y_hat_ab, TestSet_ab, Y_ab  = dm.gen_matrices([2], [8], TrainData, TestData, TrainFeat, TestFeat, 0)
 	
-	#PCA = 0
-	#Prob4c = 0
-	#learn.cv(Xab, Y_hat_ab, TestSet_ab, Y_ab, PCA, Prob4c)
-	#print "a done"
-	
-	PCA = 1
+	PCA = 0
 	Prob4c = 0
 	learn.cv(Xab, Y_hat_ab, TestSet_ab, Y_ab, PCA, Prob4c)
-	print "b done"
+	print "a done"
+	
+	#PCA = 1
+	#Prob4c = 0
+	#learn.cv(Xab, Y_hat_ab, TestSet_ab, Y_ab, PCA, Prob4c)
+	#print "b done"
 
 	#Xc_raw, Y_hat_c_raw, TestSet_c_raw, Y_c_raw = dm.gen_matrices([1], [0,2,3,4,5,6,7,8,9], TrainData, TestData, TrainFeat, TestFeat, 0)
 	#print "extracted data"

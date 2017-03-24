@@ -7,15 +7,15 @@ import matplotlib.pyplot as plt
 from sklearn import decomposition
 
 def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
-	StartGamma = 0.0
-	EndGamma = 0.015
-	NumGamma = 2 
+	StartGamma = 0.005
+	EndGamma = 0.02
+	NumGamma = 6 
 	GammaStep = (EndGamma - StartGamma) / float(NumGamma)
 	GammaList = np.arange(StartGamma+GammaStep, EndGamma+0.000001, GammaStep)
 	
-	StartC = 0.0
+	StartC = 0.1
 	EndC = 1.0
-	NumC = 2
+	NumC = 6
 	CStep = (EndC - StartC) / float(NumC)
 	CList = np.arange(StartC+CStep, EndC+0.000001, CStep)
 	
@@ -23,8 +23,8 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 		KList = [2]
 	else:
 		StartK = 0
-		EndK = 256
-		NumK = 2
+		EndK = 100
+		NumK = 100 
 		KStep = int((EndK - StartK) / NumK)
 		KList = [i for i in xrange(StartK+KStep, EndK+1, KStep)] 
 	
@@ -107,9 +107,9 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			plt.title("Errors vs. k")
 			plt.xlabel("k")
 			plt.ylabel("Errors")
-			plt.scatter(Ks, CVErrors, c='r', s=1, label="CV Error")
-			plt.scatter(Ks, TrainErrors, c='g', s=1, label="Training Error")
-			plt.scatter(Ks, TestErrors, c='b', s=1, label="Test Error")
+			plt.plot(Ks, CVErrors, c='r', label="CV Error")
+			plt.plot(Ks, TrainErrors, c='g', label="Training Error")
+			plt.plot(Ks, TestErrors, c='b', label="Test Error")
 			plt.legend()
 			plt.savefig("4b.eps", format='eps', dpi=1000)
 	

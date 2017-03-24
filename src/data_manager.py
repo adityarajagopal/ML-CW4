@@ -52,7 +52,7 @@ def thread_cv(GammaList, CList, KList, TrainMat, Y_hat, PCA):
 	ProcessQ = Queue.Queue(QLength)
 	OpQ = Queue.Queue(QLength)
 	Threads = []
-	ThreadNum = 4
+	ThreadNum = 8
 	Fold = 100
 	CVErrDict = {}
 

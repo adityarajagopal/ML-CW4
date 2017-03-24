@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 from sklearn import decomposition
 
 def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
-	StartGamma = 0.005
-	EndGamma = 0.015
+	StartGamma = 0
+	EndGamma = 0.05
 	NumGamma = 20 
 	GammaStep = (EndGamma - StartGamma) / float(NumGamma)
 	GammaList = np.arange(StartGamma+GammaStep, EndGamma+0.000001, GammaStep)

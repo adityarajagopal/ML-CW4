@@ -13,8 +13,8 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 	GammaStep = (EndGamma - StartGamma) / float(NumGamma)
 	GammaList = np.arange(StartGamma+GammaStep, EndGamma+0.000001, GammaStep)
 	
-	StartC = 0.1
-	EndC = 1.0
+	StartC = 1.0
+	EndC = 10.0
 	NumC = 10
 	CStep = (EndC - StartC) / float(NumC)
 	CList = np.arange(StartC+CStep, EndC+0.000001, CStep)

@@ -122,7 +122,7 @@ def process_data(ThreadID, ProcQ, OpQ, PCA):
 				CVErr = learn.n_fold_crossval_3(CVParam, Fold, TrainMat, Y_hat)
 			else:
 				CVErr = learn.n_fold_crossval_1(CVParam, Fold, TrainMat, Y_hat)
-			print "Gamma %s : CVErr = %s" % (CVParam, CVErr)
+			#print "Gamma %s : CVErr = %s" % (CVParam, CVErr)
 			QueueLock.acquire()
 			OpQ.put((CVParam, CVErr))
 			QueueLock.release()

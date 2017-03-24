@@ -9,7 +9,7 @@ from sklearn import decomposition
 def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 	StartGamma = 0.005
 	EndGamma = 0.015
-	NumGamma = 200 
+	NumGamma = 250 
 	GammaStep = (EndGamma - StartGamma) / float(NumGamma)
 	GammaList = np.arange(StartGamma+GammaStep, EndGamma+0.000001, GammaStep)
 	
@@ -181,7 +181,7 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			plt.title("CVError vs. Gamma")
 			plt.xlabel("Gamma")
 			plt.ylabel("CVError")
-			plt.plot(Gammas, CVErrors, color='red', label="CrossValidation Error")
+			plt.scatter(Gammas, CVErrors, color='red', s=1, label="CrossValidation Error")
 			plt.legend()
 			plt.savefig("4a.eps", format='eps', dpi=1000)
 
@@ -207,7 +207,7 @@ def n_fold_crossval_3((K, C, Gamma), Fold, TrainMat, Y_hat):
 	TrainMat = TrainMat - np.mean(TrainMat, axis=0)		
 	PCAMat = pca(TrainMat, K)
 	TrainMat = PCAMat.transform(TrainMat)
-	print TrainMat.shape
+	#print TrainMat.shape
 	for Index in xrange(0, TrainMat.shape[0]-Fold, Fold):
 		TrainSet = TrainMat
 		TrainY = Y_hat

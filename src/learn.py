@@ -70,7 +70,7 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			plt.xlabel("X1")
 			plt.ylabel("X2")
 			plt.contour(xx, yy, Z, levels=[0])
-			plt.scatter(X1, X2, c=ColourTest, s=1)
+			plt.scatter(X1, X2, color=ColourTest, s=1)
 			plt.savefig("4c_2_test.eps", format='eps', dpi=1000)
 
 			X1min, X1max = X.min()-1, X.max()+1
@@ -143,7 +143,7 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			plt.xlabel("X1")
 			plt.ylabel("X2")
 			plt.contour(xx, yy, Z, levels=[0])
-			plt.scatter(X1, X2, c=ColourTest, s=1)
+			plt.scatter(X1, X2, color=ColourTest, s=1)
 			plt.savefig("4c_1_test.eps", format='eps', dpi=1000)
 		
 			X1min, X1max = TrainMat[:,0].min()-0.1, TrainMat[:,0].max()+0.1

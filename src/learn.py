@@ -9,7 +9,7 @@ from sklearn import decomposition
 def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 	StartGamma = 0.005
 	EndGamma = 0.015
-	NumGamma = 50 
+	NumGamma = 200 
 	GammaStep = (EndGamma - StartGamma) / float(NumGamma)
 	GammaList = np.arange(StartGamma+GammaStep, EndGamma+0.000001, GammaStep)
 	
@@ -178,10 +178,10 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 			print "************************************** \n"
 	
 			plt.figure()
-			plt.title("Error vs. Gamma")
+			plt.title("CVError vs. Gamma")
 			plt.xlabel("Gamma")
-			plt.ylabel("Error")
-			plt.scatter(Gammas, CVErrors, c='r', s=1, label="CrossValidation Error")
+			plt.ylabel("CVError")
+			plt.plot(Gammas, CVErrors, color='red', label="CrossValidation Error")
 			plt.legend()
 			plt.savefig("4a.eps", format='eps', dpi=1000)
 

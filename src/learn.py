@@ -8,7 +8,7 @@ from sklearn import decomposition
 
 def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 	StartGamma = 0
-	EndGamma = 0.02
+	EndGamma = 0.015
 	NumGamma = 10 
 	GammaStep = (EndGamma - StartGamma) / float(NumGamma)
 	GammaList = np.arange(StartGamma+GammaStep, EndGamma+0.000001, GammaStep)

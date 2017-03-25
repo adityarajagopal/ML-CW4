@@ -21,6 +21,8 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 	
 	if (PCA == 2):
 		KList = [2]
+	else if (PCA == 256):
+		KList = [256]
 	else:
 		StartK = 0
 		EndK = 100

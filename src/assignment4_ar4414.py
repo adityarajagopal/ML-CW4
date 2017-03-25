@@ -21,17 +21,17 @@ def main():
 	#learn.cv(Xab, Y_hat_ab, TestSet_ab, Y_ab, PCA, Prob4c)
 	#print "b done"
 
-	Xc_raw, Y_hat_c_raw, TestSet_c_raw, Y_c_raw = dm.gen_matrices([1], [0,2,3,4,5,6,7,8,9], TrainData, TestData, TrainFeat, TestFeat, 0)
-	print "extracted data"
-	
-	PCA = 2
-	Prob4c = 1
-	learn.cv(Xc_raw, Y_hat_c_raw, TestSet_c_raw, Y_c_raw, PCA, Prob4c)
+	#Xc_raw, Y_hat_c_raw, TestSet_c_raw, Y_c_raw = dm.gen_matrices([1], [0,2,3,4,5,6,7,8,9], TrainData, TestData, TrainFeat, TestFeat, 0)
+	#print "extracted data"
+	#
+	#PCA = 2
+	#Prob4c = 1
+	#learn.cv(Xc_raw, Y_hat_c_raw, TestSet_c_raw, Y_c_raw, PCA, Prob4c)
 
 	Xc_feat, Y_hat_c_feat, TestSet_c_feat, Y_c_feat = dm.gen_matrices([1], [0,2,3,4,5,6,7,8,9], TrainData, TestData, TrainFeat, TestFeat, 1)
 	print "extracted data"
 	
-	PCA = 0
+	PCA = 256
 	Prob4c = 1
 	learn.cv(Xc_feat, Y_hat_c_feat, TestSet_c_feat, Y_c_feat, PCA, Prob4c)
 	

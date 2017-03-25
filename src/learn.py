@@ -19,10 +19,8 @@ def cv(TrainMat, Y_hat, TestMat, Y, PCA, Prob4c):
 	CStep = (EndC - StartC) / float(NumC)
 	CList = np.arange(StartC+CStep, EndC+0.000001, CStep)
 	
-	if (PCA == 2):
+	if (PCA == 2 or PCA == 256):
 		KList = [2]
-	else if (PCA == 256):
-		KList = [256]
 	else:
 		StartK = 0
 		EndK = 100
